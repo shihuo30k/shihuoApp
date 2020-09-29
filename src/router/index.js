@@ -18,10 +18,57 @@ const routes = [
             
 
             {
-                path:'coupon',
-                name:'coupon',
-                component:() => import(/*webpackChunkName:"coupon"*/'@v/home/coupon/Coupon.vue')
+                path:'preferential',
+                name:'preferential',
+                component:() => import(/*webpackChunkName:"coupon"*/'@v/home/preferential/Preferential.vue'),
+                redirect: '/preferential/selected',
+                children: [
+        
+                    {
+                      path: 'selected',
+                      name: 'selected',
+                      component: () => import(/* webpackChunkName: "selected" */ '@v/home/preferential/Selected.vue')
+                    },
+                    {
+                      path: 'shoe',
+                      name: 'shoe',
+                      component: () => import(/* webpackChunkName: "shoe" */ '@v/home/preferential/Shoe.vue')
+                    },
+                    {
+                     path: 'clothes',
+                     name: 'clothes',
+                     component: () => import(/* webpackChunkName: "clothes" */ '@v/home/preferential/Clothes.vue')
+                   },
+                   {
+                    path: 'digital',
+                    name: 'digital',
+                    component: () => import(/* webpackChunkName: "digital" */ '@v/home/preferential/Digital.vue')
+                  },
+                  {
+                   path: 'interest',
+                   name: 'interest',
+                   component: () => import(/* webpackChunkName: "interest" */ '@v/home/preferential/Interest.vue')
+                 }
+               ]  
             },
+
+            {
+                path: 'details',
+                name: 'details',
+                component: () => import(/* webpackChunkName: "details" */ '@v/home/preferential/Details.vue')
+              },
+                {
+                path: 'daily-special',
+                name: 'daily-special',
+                component: () => import(/* webpackChunkName: "daily-special" */ '@v/home/preferential/DailySpecial.vue'),
+    
+              },
+            {
+              path: 'search-volume',
+              name: 'search-volume',
+              component: () => import(/* webpackChunkName: "search-volume" */ '@v/home/preferential/SearchVolume.vue')
+            },
+
             {
                 path:'find',
                 name:'find',

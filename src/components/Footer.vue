@@ -1,12 +1,11 @@
 <template>
-    <van-tabbar v-model="active" active-color='#FF4338' inactive-color='#444'>
+    <van-tabbar v-model="active" active-color='#FF4338' inactive-color='#444' class="footer">
         <van-tabbar-item v-for="li in footerList" :key="li.title" :to="li.router">
             <span>{{ li.title }}</span>
             <template #icon="props">
                 <img :src="props.active ? li.active : li.inactive" />
             </template>
         </van-tabbar-item>
-
     </van-tabbar>
 </template>
 
@@ -31,7 +30,7 @@ export default {
                 title:'优惠',
                 active:'http://sh1.hoopchina.com.cn/images/trademobile/common/youhui-on.png?201903111600',
                 inactive:'http://sh1.hoopchina.com.cn/images/trademobile/common/youhui.png?201903111600',
-                router:'/coupon'
+                router:'/preferential'
             },
             {
                 title:'发现',
@@ -59,4 +58,16 @@ export default {
 </script>
 
 
-<style lang="stylus"></style>
+<style lang="stylus">
+.footer 
+    width 100%
+    height .45rem
+    bottom 0
+    left 0
+    position relative
+    z-index 300
+    box-shadow  0 0 0.10rem 0.01667rem rgba(0,0,0,.41);
+    span 
+        font-size .12rem
+        line-height .12rem
+</style>

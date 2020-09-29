@@ -32,7 +32,7 @@
     </div>
 </template>
 <script>
-import { get } from '@u/http.js'
+import http from '@u/http'
     export default {
         data(){
             return{
@@ -54,19 +54,19 @@ import { get } from '@u/http.js'
         },
         methods:{
             async render(){
-                let result = await get({
-                    url:'/api/search',
-                    params:{
+                let result = await http.get(
+                   '/api/search',
+                    {
                         page:this.page,
                         page_size:this.page_size,
                         type:'goods',
                         keywords:this.keywords
                     }
-                })
-                this.result = result
+                )
+                this.result = result.data
                 this.searchGoodsList = [
                     ...this.searchGoodsList,
-                    ...result.list
+                    ...result.data.list
                 ]
             },
         }

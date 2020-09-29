@@ -48,7 +48,7 @@ import { List } from 'vant';
 Vue.use(List);
 import { mapState } from 'vuex'
 import _ from 'lodash'
-import {get} from '@u/http.js'
+import http from '@u/http'
 import Single2 from '@/views/home/index/Single2'
 import Multi2 from '@/views/home/index/Multi2'
 export default {
@@ -100,22 +100,22 @@ export default {
    },
    methods:{
       async render(){
-         let result = await get({
-         url:'/api/homefis/getNews',
-         params:{
+         let result = await http.get(
+         '/api/homefis/getNews',
+        {
             pageSize:20,
             param_str:'',
             type:this.cartType,
             channel_type:this.channelType,
          }
-         })
+         )
          // this.goodsList = [
          //    ...this.goodsList,
          //    ...result
          //    ]
 
          // this.goodsList = _.filter(result,o => o.show_type !== 'single2')
-         this.goodsList =result
+         this.goodsList =result.data
 
          this.loading = false
          this.defaultApiIndex++

@@ -5,10 +5,9 @@
 </template>
 
 <script>
-// import homeIndex from '@v/home/index/homeIndex'
 export default {
   components: {
-    // homeIndex
+
   }
 }
 </script>
@@ -16,4 +15,5 @@ export default {
 <style lang="stylus" scoped>
   .container
     height 100%
+    overflow auto
 </style>

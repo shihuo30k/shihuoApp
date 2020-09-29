@@ -33,7 +33,7 @@
     </div>
 </template>
 <script>
-import { get } from '@u/http.js'
+import http from '@u/http'
     export default {
         data(){
             return {
@@ -65,10 +65,10 @@ import { get } from '@u/http.js'
                 this.$router.go(-1)
             },
             async render(){
-                let result = await get({
-                    url:'/api/search/hotSearch',
-                })
-                this.hotSearch = result
+                let result = await http.get(
+                    '/api/search/hotSearch'
+            )
+                this.hotSearch = result.data
             },
             delHisSearchHandler(index){
                this.hisSearch.splice(index, 1)

@@ -91,7 +91,7 @@ export default {
         height .45rem
         bottom 0
         position relative
-        box-shadow  0 0 0.10rem 0.01667rem rgba(0,0,0,.41);
+        // box-shadow  0 0 0.10rem 0.01667rem rgba(0,0,0,.41);
         span 
             font-size .12rem
             line-height .12rem
