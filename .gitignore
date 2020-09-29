@@ -2,8 +2,6 @@
 .lock
 node_modules
 /dist
-App.vue
-
 
 # local env files
 .env.local
