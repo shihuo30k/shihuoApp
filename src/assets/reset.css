@@ -31,6 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: PingFangSC-Regular, Hiragino Sans GB, sans-serif }
 
+
 ul,
 ol,
 dl,
@@ -212,6 +213,22 @@ a {
   font-family: yofont;
   src: url(./icons/theater.woff) format("woff"), url(./icons/theater.ttf) format("truetype"); 
 } */
+@font-face {
+  font-family: yofont;
+  src: url(//ss.qunarzz.com/yo/font/1.0.3/yofont.woff) format("woff"), url(//ss.qunarzz.com/yo/font/1.0.3/yofont.ttf) format("truetype"); 
+}
+@font-face {
+  font-family: yofont;
+  src: url(./icons/iconfont.woff) format("woff"), url(./icons/iconfont.ttf) format("truetype"); 
+}
+@font-face {
+ font-family: yofont;
+ src: url(./icons/iconfont1.woff) format("woff"), url(./icons/iconfont1.ttf) format("truetype"); 
+}
+@font-face {
+ font-family: yofont;
+ src: url(./icons/iconfont2.woff) format("woff"), url(./icons/iconfont2.ttf) format("truetype"); 
+}
 
 .yo-ico {
   font-family: yofont !important;

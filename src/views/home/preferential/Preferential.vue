@@ -32,14 +32,14 @@
                    <span>热门搜索</span>
                 </div>
                 <div class="popularSearch-cate">
-                  <div>AJ</div>
-                  <div>Nike</div>
-                  <div>亚瑟士</div>
-                  <div>洗面奶</div>
-                  <div>Dickies</div>
-                  <div>李维斯</div>
-                  <div>新百伦</div>
-                  <div>PUMA</div>
+                 <router-link tag="div" to="/hot-search/AJ">AJ</router-link>
+                 <router-link tag="div" to="/hot-search/Nike">Nike</router-link>
+                 <router-link tag="div" to="/hot-search/亚瑟士">亚瑟士</router-link>
+                 <router-link tag="div" to="/hot-search/洗面奶">洗面奶</router-link>
+                 <router-link tag="div" to="/hot-search/Dickies">Dickies</router-link>
+                 <router-link tag="div" to="/hot-search/李维斯">李维斯</router-link>
+                 <router-link tag="div" to="/hot-search/新百伦">新百伦</router-link>
+                 <router-link tag="div" to="/hot-search/PUMA">PUMA</router-link>
                 </div>
                </div>
               </div>

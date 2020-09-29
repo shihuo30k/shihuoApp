@@ -36,7 +36,7 @@ export default {
                 title:'发现',
                 active:'http://sh1.hoopchina.com.cn/images/trademobile/common/find-on.png?201903111600',
                 inactive:'http://sh1.hoopchina.com.cn/images/trademobile/common/find.png?201903111600',
-                router:'/find'
+                router:'/discover'
             },
             {
                 title:'装备',
