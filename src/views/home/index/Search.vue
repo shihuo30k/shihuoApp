@@ -20,10 +20,11 @@
             <p>历史搜索</p>
             <ul class="history">
                 <li 
+                class="hisText"
                 v-for="(search, index) in hisSearch"
                 :key="index+'sear'"
                 >
-                    <span>{{ search }}</span><i @click="delHisSearchHandler(index)"></i>
+                    <span @click="hisSearchHandler(search)">{{ search }}</span><i @click="delHisSearchHandler(index)"></i>
                 </li>
             </ul>
             <div class="clear_history" v-if="hisSearch.length > 0">
@@ -77,6 +78,9 @@ import http from '@u/http'
             clearHandler(){
                 this.hisSearch.splice(0,this.hisSearch.length)
                 localStorage.setItem('hisSearch',JSON.stringify(this.hisSearch))
+            },
+            hisSearchHandler(search){
+                this.$router.push(`/search_result?keywords=${search}`)
             }
         },
     }
@@ -133,12 +137,13 @@ import http from '@u/http'
             justify-content space-between
             align-items center
             border_1px(0 0 1px 0, #e6e6e6)
+            
             span 
                 font-size .16rem
                 display inline-block
                 height .42rem
                 line-height .42rem
-                
+                padding-right 2.5rem
             i 
                 display inline-block
                 width .1rem
