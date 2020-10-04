@@ -1,6 +1,6 @@
 <template>
     <ul class="middle-container">
-        <router-link to="/youhui" tag="li">
+        <router-link to="/preferential" tag="li">
             <p>今日优惠</p>
             <span>EQT 5折好价</span>
             <p>

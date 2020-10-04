@@ -14,6 +14,7 @@
                 <li 
                 v-for="(li,index) in hotSearch"
                 :key="index"
+                @click="hotSearchHandler"
                 >{{ li.name }}</li>
                 
             </ul>
@@ -44,9 +45,7 @@ import http from '@u/http'
             }
         },
         computed:{
-            // hisSearch(){
-            //     return localStorage.getItem('hisSearch').split(',').splice(1)
-            // }
+
         },
         directives: {
             focus: {
@@ -81,6 +80,9 @@ import http from '@u/http'
             },
             hisSearchHandler(search){
                 this.$router.push(`/search_result?keywords=${search}`)
+            },
+            hotSearchHandler(){
+                
             }
         },
     }
