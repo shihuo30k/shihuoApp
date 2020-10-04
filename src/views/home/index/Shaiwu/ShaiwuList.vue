@@ -1,23 +1,31 @@
 <template>
     <div>
-        <div class="search-shaiwu" v-for="res in shaiwuDataList" :key="res.id">
-            <h2>{{ keywords }}</h2>
-            <p class="content">
-                {{ res.intro }}
-            </p>
-            <ul class="img-list">
-                <li
-                v-for="(img, index) in res.img_attr"
-                :key="index"
-                >
-                    <img :src="img" alt="">
-                </li>
-            </ul>
-            <div class="btm">
-                <p class="author">{{ res.author_name }}</p>
-                <span class="date">{{ res.date }}</span>
+        <van-list
+        v-model="loading"
+        loading-text="加载数据中"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+        >
+            <div class="search-shaiwu" v-for="res in shaiwuDataList" :key="res.id + res.author_id">
+                <h2>{{ keywords }}</h2>
+                <p class="content">
+                    {{ res.intro }}
+                </p>
+                <ul class="img-list">
+                    <li
+                    v-for="(img, index) in res.img_attr"
+                    :key="index"
+                    >
+                        <img :src="img" alt="">
+                    </li>
+                </ul>
+                <div class="btm">
+                    <p class="author">{{ res.author_name }}</p>
+                    <span class="date">{{ res.date }}</span>
+                </div>
             </div>
-        </div>
+        </van-list>
     </div>
 </template>
 <script>
@@ -31,6 +39,8 @@ export default {
     data(){
         return {
             shaiwuDataList:[],
+            loading:false,
+            finished:false
         }
     },
     created(){
@@ -39,7 +49,7 @@ export default {
         this.type='shaiwu'
     },
     mounted(){
-        this.getShaiwuData()
+        // this.getShaiwuData()
     },
     methods:{
         async getShaiwuData(){
@@ -57,6 +67,11 @@ export default {
                 ...this.shaiwuDataList,
                 ...result.data.list
             ]
+            this.page++
+            this.loading = false
+        },
+        onLoad(){
+            this.getShaiwuData()
         }
     }
 }

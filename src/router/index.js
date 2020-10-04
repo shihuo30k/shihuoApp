@@ -156,20 +156,20 @@ const routes = [
         component:() => import(/*webpackChunkName:"MiddleLeft"*/'@v/home/index/SearchResult.vue'),
         props:route => ({query:route.query.keywords})
     },
-    {
-        path:'/youhui',
-        name:'youhui',
-        component:() => import(/*webpackChunkName:"MiddleLeft"*/'@v/home/index/MiddleLeft.vue'),
-    },
+    // {
+    //     path:'/youhui',
+    //     name:'youhui',
+    //     component:() => import(/*webpackChunkName:"MiddleLeft"*/'@v/home/index/MiddleLeft.vue'),
+    // },
     {
         path:'/tuangou',
         name:'tuangou',
-        component:() => import(/*webpackChunkName:"MiddleCenter"*/'@v/home/index/MiddleCenter.vue'),
+        component:() => import(/*webpackChunkName:"MiddleTuangou"*/'@v/home/index/indexMiddleComp/MiddleTuangou'),
     },
     {
         path:'/choujiang',
         name:'choujiang',
-        component:() => import(/*webpackChunkName:"MiddleRight"*/'@v/home/index/MiddleRight.vue'),
+        component:() => import(/*webpackChunkName:"MiddleChoujiang"*/'@v/home/index/indexMiddleComp/MiddleChoujiang.vue'),
     },
 ]
 

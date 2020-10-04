@@ -11,7 +11,7 @@
             <ul class="news-list">
                 <li 
                 v-for="news in newsList"
-                :key="news.id"
+                :key="news.id + news.business"
                 >
                     <div class="imgs">
                         <img :src="news.img_url" alt="">
@@ -76,6 +76,7 @@ export default {
             ]
             this.loading = false
             this.page++
+            if(result.data.list.length === 0) this.finished === true
         },
         onLoad(){
             this.getNewsData()
