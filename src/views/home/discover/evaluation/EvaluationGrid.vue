@@ -111,43 +111,49 @@ export default {
 </script>
 <style lang='stylus' scoped>
 .container
-    ul
-        width 100%
-        padding-left .15rem
-        display flex
-        overflow-x scroll
-        li
-            width 1.8rem
-            height 2.5rem
-            padding 0 .15rem .15rem 0
-            .img
-                width 1.65rem
-                height 1.58rem
-                
-            .txt
-                width 1.65rem
-                height .42rem
-                margin-top .05rem
-                div:nth-child(1)
-                    margin .05rem  0 .1rem
-                    font-size .14rem
-                    word-wrap break-word
-                    color #444444
-                    
-                .dec
-                    width 1.65rem
-                    display flex
-                    justify-content space-between
+  width 100%
+  height 2.6rem
+  ul
+      width 100%
+      height 100%
+      padding-left .15rem
+      display flex
+      overflow-x scroll
+      li
+          width 1.8rem
+          height 2.5rem
+          padding 0 .15rem .15rem 0
+          .img
+              width 1.65rem
+              height 1.58rem
+              
+          .txt
+              width 1.65rem
+              height .42rem
+              margin-top .05rem
+              div:nth-child(1)
+                  margin .05rem  0 .1rem
+                  font-size .14rem
+                  word-wrap break-word
+                  color #444444
+                  
+              .dec
+                  width 1.65rem
+                  display flex
+                  justify-content space-between
 
-                    span 
-                        display block
-                        width .68rem
-                        font-size .12rem
-                        color #999
-                        line-height .18rem
-                        text-align center
-                        display flex
-                        i 
-                            color #ff4338
-                            margin-left .025rem
+                  span 
+                      display block
+                      width .68rem
+                      font-size .12rem
+                      color #999
+                      line-height .18rem
+                      text-align center
+                      display flex
+                      i 
+                          color #ff4338
+                          margin-left .025rem
+  img 
+    width 100%
+    height 100%   
 </style>

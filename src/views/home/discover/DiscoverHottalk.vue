@@ -2,12 +2,14 @@
     <div class="container">
         <van-swipe-cell>
             <div class="swiper-slide " >
+                <router-link to="/hottalk/312">
                 <div class="imgs">
                     <img src="http://shihuo.hupucdn.com/column/201811/2215/2e79d7e6da19d652db2c54020574701e.jpg" alt="" >
                 </div>
                 <div class="blackbg">
                     <p># 晒穿搭，AJ11 CONCORD 领回家！！ #</p>
                 </div>
+                </router-link>
             </div>
 
             <div class="swiper-slide " >
@@ -27,14 +29,20 @@
                     <img src="http://shihuo.hupucdn.com/column/201812/2919/08a6f969e4e07d33209b8ba948ed425c.png" alt="" >
                 </div>
                 <div class="blackbg">
-                    <p># 晒照赢新年康扣 #</p>
+                    <router-link to="/hottalk/322">
+                        <p># 晒照赢新年康扣 #</p>
+                    
+                    </router-link>
                 </div>
             </div>
 
             <template #right>
+                    <router-link to='/hottest/1'>
                 <div class="look-more">
+                    
                     查看更多
                 </div>
+                    </router-link>
             </template>
 
         </van-swipe-cell>

@@ -129,7 +129,7 @@ export default {
    .van-sticky
     display flex
     .van-tabs
-     width 85.71428571428572%
+     width 100%
     .show-more
 
      display flex

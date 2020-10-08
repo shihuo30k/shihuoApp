@@ -112,6 +112,22 @@ const routes = [
         )
     },
     {
+        path:'/evamore',
+        name:'evamore',
+        component:()=>import(
+            /*webpackChunkName="evamore" */
+            '@v/home/discover/evaluation/evaluationmore/EvaluationMore.vue'
+        )  
+    },
+    {
+        path:'/hottalk/:id',
+        name:'hottalk',
+        component:()=>import(
+            /*webpackChunkName="hottalk" */
+            '@v/home/discover/hottalkclick/HotTalkClick.vue'
+        )  
+    },
+    {
         //discover栏目
         path:'/column',
         name:'column',
@@ -135,11 +151,20 @@ const routes = [
     },
     {
         //discover最热
-        path:'/hottest',
+        path:'/hottest/:id',
         name:'hottest',
         component:()=>import(
             /*webpackChunkName="hottest" */
             '@v/home/discover/hottest/Hottest.vue'
+        )
+    },
+    {
+        //discover最热
+        path:'/det',
+        name:'det',
+        component:()=>import(
+            /*webpackChunkName="det" */
+            '@v/home/discover/evaluation/evaluationdetails/EvaluationDetails'
         )
     },
 

@@ -21,24 +21,42 @@
           <i>5507</i>
         </span>
       </div>
-      <div>
+     
+      <router-link tag="div"
+      to="/det"
+      >
         查看详情
-      </div>
+      </router-link>
+        
+      
     </div>
     <div class="hoteva">
       <div>
         <h2>热门众测</h2>
-        <a href="#">更多众测></a>
+        <router-link tag="a" to="/evamore">
+        <!-- <router-link tag="a" to="/column/9"> -->
+           更多众测>
+        </router-link>
+     
       </div>
 
+      
+
         <EvaluationGrid></EvaluationGrid>
+    
 
 
     </div>
     <div class="report">
       <div>
         <h2>众测报告</h2>
-        <a href="#">更多报告></a>
+      
+     
+        <router-link tag="a" to="/column/9">
+           更多报告>
+        </router-link>
+     
+       
 
       </div>
 
@@ -68,7 +86,8 @@ export default {
         EvaluationList,
         EvaluationBottom
     },
-    methods:{},
+    methods:{
+    },
        
     created(){
 
@@ -152,6 +171,7 @@ export default {
         color #444
       a 
         color #278ccf
+        height .2rem
         font-size .12rem
     
   .bottom
@@ -161,7 +181,10 @@ export default {
     bottom 0
     left 0
     z-index 999
-
-
+  img 
+    width 100%
+    height 100%   
+  .grid 
+    height 2.71rem
     
 </style>

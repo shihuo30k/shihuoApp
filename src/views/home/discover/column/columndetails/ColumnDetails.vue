@@ -3,30 +3,30 @@
   <div>
     <TopBar :title="title" />
     <div class="img">
-        <img src="http://shihuo.hupucdn.com/column/201901/2910/bfc3b5eb60a709c3dbdc225f031408ef.png" alt="">
+        <img :src="img" alt="">
     </div>
     <div class="list">
-        <h3>潮鞋志</h3>
+        <h3>{{toptxt}}</h3>
         <ul>
-            <li>
+            <li v-for = "(v,i) in list " :key="i">
                
                 <div>
-                    <img src="http://shihuo.hupucdn.com/ucditor/20200710/1064x1890_23b8fe42a973ab8f79d25bbc77dd5aca.jpeg?imageslim|imageView2/1/w/400/h/400" alt="">
+                    <img :src="v.data.img_path" alt="">
                 </div>
                 <div>   
                     <h4>
-                        XH55开箱丨NIKE SB DUNK LOW "ACG" 
+                        {{v.data.title}}
                     </h4>
                     <p>
-                        DUNK开箱
+                        {{v.data.subtitle}}
                     </p>
                     <div>
                         <h5>
                              <i>
-                            <img src="https://i1.hoopchina.com.cn/user/header/20181024/154037276230426_big_2.jpg">
+                            <img :src="v.data.avatar">
                             </i>
                             <span>
-                                    XH55
+                                   {{v.data.author_name}}
                             </span>
                         </h5>
                        
@@ -34,10 +34,9 @@
                             <b>
                                 <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/column/vote_icon_8caec38.png" alt="">
                             </b>
-                            <em>10</em>
+                            <em>{{v.data.praise}}</em>
                         </h6>
-                        
-                        
+ 
                     </div>
                 </div>
           
@@ -47,23 +46,73 @@
   </div>
 </template>
 <script>
+import http from '@u/http.js'
 import TopBar from '@c/discover/TopBar'
 export default {
-    data(){
+     data(){
         return{
             title:'识货-栏目',
+           
+
+            list:[],
+            img:'',
+            toptxt:'',
+           
+            columnId:0,
+            
+            arr:[285,8,5,238,13,135,137,280,6,21],
+            imgs:['http://shihuo.hupucdn.com/column/201901/2910/bfc3b5eb60a709c3dbdc225f031408ef.png','http://shihuo.hupucdn.com/column/201904/3019/194e422f3f7f559e3ec3f97f5db77d02.png','http://shihuo.hupucdn.com/column/201809/2010/873ceba27026dc8694990027db1876e3.jpg','http://shihuo.hupucdn.com/column/201809/2009/0cae8ba7dc245a4c8ffd2ed325167c87.jpg','http://shihuo.hupucdn.com/column/201901/2911/d63f83823237e822f2cfd3e207774dc9.png','http://shihuo.hupucdn.com/column/201901/2911/b1a7a07263f622df41f93a2b84c0ad1a.png','http://shihuo.hupucdn.com/column/201905/1218/b11f2b9d6f4b8fca45ea16a533354ead.jpg','http://shihuo.hupucdn.com/column/201901/2910/f62a55481c19c7f591efbf846e922dc6.png',,'http://shihuo.hupucdn.com/column/201811/2914/2fae17909b423fae045e9d8f50df4b78.jpg'],
+             txt:['潮鞋志','球鞋SHOW','一日一双','今天穿这样','潮流穿搭','球鞋90秒','跑步评测室','视频','装备党'],
         }
     },
     components:{
         TopBar
     },
+   
+       
+    created(){
+
+    },
+    mounted() {
+    //   this.list=[]
+    //   console.log(this.$route.params.id);
+      this.loadData(this.arr[this.$route.params.id])
+      this.img=this.imgs[this.$route.params.id]
+      this.toptxt = this.txt[this.$route.params.id]
+    //   this.loadData(this.arr[0])
+    //   this.img=this.imgs[0]
+    },
+   
+    methods:{
+      
+      async loadData(a){
+
+        let result = await http.get('/api/column/getList',{
+          columnId: a,
+          pageSize: 20,
+          page:1 ,
+          createTimestamp:''
+        })
+        console.log(result.data);
+        this.list = result.data
+        // this.list=[
+        //   ...this.list,
+        //   ...result.data
+        // ]
+      }
+    },
 }
+
 </script>
 <style lang='stylus' scoped>
+@import '~@a/stylus/ellipsis.styl'
     .img
         width 100%
         height 1.65rem
         padding-bottom .05rem
+        img 
+            width 100%
+            height 100%
     .list
         width 100%
         height 100%
@@ -119,6 +168,8 @@ export default {
                         justify-content space-between
                         h5 
                             display flex
+                            
+                            
 
                             i 
                                 display block
@@ -130,7 +181,7 @@ export default {
                                 font-size .14rem
                                 color #999
                                 padding-left .05rem
-                                word-wrap word-break
+                                
                         h6 
                             display flex    
                             b
@@ -146,6 +197,8 @@ export default {
                                 padding-left .05rem 
 
                 
-
+        img     
+            width 100%
+            height 100%
        
 </style>

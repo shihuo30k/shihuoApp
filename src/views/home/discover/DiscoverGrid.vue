@@ -4,7 +4,7 @@
             <van-grid-item icon="//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/find/index/icon-zhongce_65770bc.png" text="众测" to="/eva" />
             <van-grid-item icon="//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/find/index/icon-huati_624fa93.png" text="栏目" to="/column"/>
             <van-grid-item icon="//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/find/index/icon-new_86b6c1f.png" text="最新" to="/newest"/>
-            <van-grid-item icon="//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/find/index/icon-hot_2a01f3a.png" text="最热" to="/hottest" />
+            <van-grid-item icon="//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/find/index/icon-hot_2a01f3a.png" text="最热" to="/hottest/0" />
         </van-grid>
     </div>
 </template>

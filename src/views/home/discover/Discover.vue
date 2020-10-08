@@ -36,7 +36,7 @@
                     </van-tabs>
 
                 </van-sticky>
-                
+                 
                 <van-list
                 v-model="loading"
                 @load="onLoad"
@@ -153,8 +153,10 @@ export default {
         //  console.log(this.$route.name);
          let name = this.$route.params.id
          let obj = _.find(this.db,o=>(o.nm===name))
+
         this.id=obj.id
         this.arr=obj.param_str
+        console.log(this.$route);
         //  console.log(obj.id,obj.param_str);
         // console.log(this.id,this.arr);
         this.loadDate(this.id,'')
@@ -166,16 +168,24 @@ export default {
     beforeRouteUpdate(to, from, next) {
         // console.log("uuuuuu");
         // console.log(to.params.id);
-        this.list=[]
-        // this.path = to.name
-         let obj1 = _.find(this.db,o=>(o.nm=== to.params.id))
-        //  console.log(obj1);
-        this.id=obj1.id
-        this.arr=obj1.param_str
-         console.log(this.id,this.arr);
-        //  console.log(obj1.id,obj1.param_str);
-        this.loadDate(this.id,'')
-        // console.log("bbb");
+        
+
+            this.list=[]
+            // this.path = to.name
+             let obj1 = _.find(this.db,o=>(o.nm=== to.params.id))
+            //  console.log(obj1);
+            if(obj1){
+
+                this.id=obj1.id
+                this.arr=obj1.param_str
+                 console.log(this.id,this.arr);
+                //  console.log(obj1.id,obj1.param_str);
+                this.loadDate(this.id,'')
+                // console.log("bbb");
+            }else{
+                next()
+            }
+        
 
         next()
     },
@@ -197,7 +207,7 @@ export default {
                 ... result.data
             ]
             this.loading=false
-            // console.log(result.data);
+            // console.log(result);
             // console.log(this.list);
         },
          onLoad(){
@@ -246,11 +256,14 @@ main
         >div:nth-child(1)
             margin-bottom .1rem
             padding-left 0
-     
+    img 
+        width 100%
+        height 100%    
 .list
     height 100%       
   
-
+    
+        
 </style>
 <style lang="stylus">
     // .van-tabs__line
