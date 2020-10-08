@@ -14,7 +14,7 @@
                 <li 
                 v-for="(li,index) in hotSearch"
                 :key="index"
-                @click="hotSearchHandler"
+                @click="hotSearchHandler(li.name)"
                 >{{ li.name }}</li>
                 
             </ul>
@@ -81,8 +81,8 @@ import http from '@u/http'
             hisSearchHandler(search){
                 this.$router.push(`/search_result?keywords=${search}`)
             },
-            hotSearchHandler(){
-                
+            hotSearchHandler(name){
+                this.$router.push(`/search_result?keywords=${name}`)
             }
         },
     }

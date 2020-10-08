@@ -42,11 +42,11 @@ export default {
 };
 </script>
 <style lang='stylus' scoped>
-@import '~@a/stylus/border.styl';
+@import '~@a/stylus/border.styl'
 .main-box
     height 100%
-    color: #444;
-    background: #f7f7f7;
+    color #444
+    background #f7f7f7
     display flex
     flex-direction column
     .top-wrap

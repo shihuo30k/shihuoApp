@@ -7,7 +7,7 @@
       @load="onLoad"
     >
       <ul>
-         <li v-for="good in goodsList" :key="good.item_id">
+         <li v-for="good in goodsList" :key="good.data.item_id" @click="detailHandler(good.data.href)">
             <template v-if="good.show_type==='single3'">
                <div>
                   <span>
@@ -109,12 +109,6 @@ export default {
             channel_type:this.channelType,
          }
          )
-         // this.goodsList = [
-         //    ...this.goodsList,
-         //    ...result
-         //    ]
-
-         // this.goodsList = _.filter(result,o => o.show_type !== 'single2')
          this.goodsList =result.data
 
          this.loading = false
@@ -124,6 +118,11 @@ export default {
       onLoad(){
          this.render()
       },
+      detailHandler(href){
+         // this.$router.push({ name:'index_detail', params:{id:id}})
+         // this.$router.push(`/index_detail/${id}`)
+         window.location.href=href
+      }
    }
 }
 </script>

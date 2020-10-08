@@ -1,7 +1,7 @@
 <template>
   <nav>
     <ul>
-      <li>
+      <router-link to="/basketball" tag="li">
         <div>
           <p>篮球</p>
           <span>纯白系列秒杀</span>
@@ -12,8 +12,8 @@
             alt
           />
         </div>
-      </li>
-      <li>
+      </router-link>
+      <router-link to="/running" tag="li">
         <div>
           <p>跑步</p>
           <span>女王节秒杀</span>
@@ -24,10 +24,10 @@
             alt
           />
         </div>
-      </li>
+      </router-link>
     </ul>
     <ul>
-      <li>
+      <router-link to="/fitness" tag="li">
         <div>
           <p>健身</p>
           <span>布瑞特装备秒杀</span>
@@ -38,8 +38,8 @@
             alt
           />
         </div>
-      </li>
-      <li>
+      </router-link>
+      <router-link to="/football" tag="li">
         <div>
           <p>足球</p>
           <span>其实是在吹总裁</span>
@@ -50,10 +50,10 @@
             alt
           />
         </div>
-      </li>
+      </router-link>
     </ul>
     <ul>
-      <li>
+      <router-link to="/freestyle" tag="li">
         <div>
           <p>潮流</p>
           <span>78元短袖秒杀</span>
@@ -64,8 +64,8 @@
             alt
           />
         </div>
-      </li>
-      <li>
+      </router-link>
+      <router-link to="/digital" tag="li">
         <div>
           <p>数码</p>
           <span>2020年小强几岁了</span>
@@ -76,7 +76,7 @@
             alt
           />
         </div>
-      </li>
+      </router-link>
     </ul>
   </nav>
 </template>

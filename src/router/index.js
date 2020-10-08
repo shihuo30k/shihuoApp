@@ -161,15 +161,59 @@ const routes = [
     //     name:'youhui',
     //     component:() => import(/*webpackChunkName:"MiddleLeft"*/'@v/home/index/MiddleLeft.vue'),
     // },
+
+    //首页团购
     {
         path:'/tuangou',
         name:'tuangou',
         component:() => import(/*webpackChunkName:"MiddleTuangou"*/'@v/home/index/indexMiddleComp/MiddleTuangou'),
     },
+
+    //首页抽奖
     {
         path:'/choujiang',
         name:'choujiang',
         component:() => import(/*webpackChunkName:"MiddleChoujiang"*/'@v/home/index/indexMiddleComp/MiddleChoujiang.vue'),
+    },
+
+    //首页详情页
+    {
+        path:'/index_detail/:good_id',
+        name:'index_detail',
+        component:() => import(/*webpackChunkName:"index_detail"*/'@v/home/detail/IndexDetail.vue')
+    },
+
+    //首页金刚区
+        //篮球路由
+    {
+        path:'/basketball',
+        name:'basketball',
+        component:() => import(/*webpackChunkName:"basketball"*/'@v/home/indexNavComp/Basketball.vue')
+    },
+    {
+        path:'/running',
+        name:'running',
+        component:() => import(/*webpackChunkName:"running"*/'@v/home/indexNavComp/Running.vue')
+    },
+    {
+        path:'/fitness',
+        name:'fitness',
+        component:() => import(/*webpackChunkName:"fitness"*/'@v/home/indexNavComp/Fitness.vue')
+    },
+    {
+        path:'/football',
+        name:'football',
+        component:() => import(/*webpackChunkName:"football"*/'@v/home/indexNavComp/Football.vue')
+    },
+    {
+        path:'/freestyle',
+        name:'freestyle',
+        component:() => import(/*webpackChunkName:"freestyle"*/'@v/home/indexNavComp/Freestyle.vue')
+    },
+    {
+        path:'/digital',
+        name:'index_digital',
+        component:() => import(/*webpackChunkName:"digital"*/'@v/home/indexNavComp/Digital.vue')
     },
 ]
 
