@@ -1,11 +1,12 @@
 <template>
   <div class="container">
     <searchinput></searchinput>
-    <!-- <righttop></righttop> -->
+    <div class="test"></div>
     <div class="toptitle">
-      <salehot></salehot>
-      <goodprice></goodprice>
-      <currentnew></currentnew>
+      
+      <router-link to="/pagesalehot"><salehot></salehot></router-link>
+      <router-link to="/pagegoodprice"><goodprice></goodprice></router-link>
+      <router-link to="/pagecurrentnew"><currentnew></currentnew></router-link>
     </div>
     <div class="imgarea">
       <div class="first">
@@ -258,7 +259,8 @@
       <div class="recommend">
         最新推荐
       </div>
-      <div class="listitem" id="list" :key="item.data.id" v-for="item in hotlist">
+      <a :href="item.data.href" id="list" :key="item.data.id" v-for="item in hotlist" class="aa">
+      <div class="listitem">
         <div class="imglist">
           <img :src="item.data.img">
         </div>
@@ -281,6 +283,7 @@
            </div>
         </div>
       </div>
+      </a>
     </div>
   </div>
 </template>
@@ -291,7 +294,7 @@ import righttop from "@c/righttop";
 import goodprice from "@c/goodprice";
 import salehot from "@c/salehot";
 import currentnew from "@c/currentnew";
-import http from "@u/http"
+import http from "@u/http.js"
 export default {
   data(){
     return{
@@ -306,7 +309,7 @@ export default {
     currentnew,
   },
   async mounted(){
-    let result=await http.post('/api/zhuangbei/getHomeNews',{page:2})
+    let result=await http.post('/api/zhuangbei/getHomeNews',4)
     this.hotlist=result.data;
     console.log(result.data);
   }
@@ -314,6 +317,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.aa
+  color black
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -332,9 +337,12 @@ export default {
 .toptitle {
   height: 0.78rem;
   width: 100%;
-  padding-top: 0.16rem;
+  padding-top: 0.48rem;
 }
 
+.imgarea{
+  margin-top .4rem
+}
 .con {
   width: 100%;
 }
@@ -446,6 +454,7 @@ export default {
 .recommend
    width 100%
    height .24rem
+   display flex
    line-height .24rem
    font-size .18rem
 .imglist
@@ -477,10 +486,12 @@ export default {
 .title
   font-size .14rem
   height .42rem
+  display flex
   padding-left .16rem
 .centerdesc
   font-size .12rem
   padding-left .16rem
+  display flex
   img
      width .12rem
      height .12rem

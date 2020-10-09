@@ -65,8 +65,9 @@ export default {
     bottom 0
     left 0
     position relative
-    z-index 300
+    z-index 999
     box-shadow  0 0 0.10rem 0.01667rem rgba(0,0,0,.41);
+    background-color #fff
     span 
         font-size .12rem
         line-height .12rem

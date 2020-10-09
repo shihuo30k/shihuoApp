@@ -10,8 +10,8 @@
             </li>
             
         </ul>
-        <p class="linkMore">
-            <a href="">
+        <p class="linkMore" @click="moreHandler">
+            <a href="javascript:void(0);">
                 查看所有{{nums}}个符合条件的商品
                 <img src="//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/search/linkmore_ef4e87b.png" alt="">
             </a>
@@ -19,6 +19,10 @@
     </div>
 </template>
 <script>
+import Vue from 'vue';
+import { Toast } from 'vant';
+
+Vue.use(Toast);
 import http from '@/utils/http'
 export default {
     props:{
@@ -53,7 +57,10 @@ export default {
             )
             this.goodPics = result.data.list
             this.nums = result.data.num
-        }
+        },
+         moreHandler(){
+            Toast('更多精彩请下载APP');
+        },
     }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container list">
         <header>
             <div>
                 
@@ -53,10 +53,11 @@
                 </van-list>
                 </div>
                 <!-- <router-view :arr="list"></router-view> -->
+                <BackTop></BackTop>
         </main>
 
 
-
+    
     </div>
 </template>
 <script>
@@ -77,6 +78,7 @@ import DiscoverSwiper from '@v/home/discover/DiscoverSwiper'
 import DiscoverHottalk from '@v/home/discover/DiscoverHottalk'
 import Footer from '@c/Footer'
 import DiscoverGrid from '@v/home/discover/DiscoverGrid'
+import BackTop from '@/components/BackTop'
 export default {
     data(){
         
@@ -145,7 +147,8 @@ export default {
         DiscoverSwiper,
         DiscoverHottalk,
         Footer,
-        DiscoverGrid
+        DiscoverGrid,
+        BackTop
     },
 
      mounted() {

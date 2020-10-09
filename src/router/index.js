@@ -6,6 +6,11 @@ import Home from '@v/home/Home'
 import DiscoverEvaluating from '@v/home/discover/DiscoverEvaluating.vue'
 import ColumnDetails from "@v/home/discover/column/columndetails/ColumnDetails.vue"
 
+import pagesalehot from "@v/home/equip/pagesalehot.vue"
+import pagegoodprice from "@v/home/equip/pagegoodprice.vue"
+import pagecurrentnew from "@v/home/equip/pagecurrentnew.vue"
+
+
 const routes = [
     {
         path:'/',
@@ -91,8 +96,11 @@ const routes = [
             {
                 path:'equip',
                 name:'equip',
-                component:() => import(/*webpackChunkName:"equip"*/'@v/home/equip/Equip.vue')
+                component:() => import(/*webpackChunkName:"equip"*/'@v/home/equip/equip.vue'),
+                
             },
+            
+
             {
                 path:'more',
                 name:'more',
@@ -100,6 +108,31 @@ const routes = [
             },
         ]
     },
+    {
+        path:"/pagesalehot",
+        component:pagesalehot
+    },
+    {
+        path:"/pagegoodprice",
+        component:pagegoodprice
+    },
+    {
+        path:"/pagecurrentnew",
+        component:pagecurrentnew
+    },
+
+    {
+        path: '/more-products',
+        name: 'more-products',
+        component: () => import(/* webpackChunkName: "more-products" */ '@v/home/preferential/moreProducts/MoreProducts.vue'),
+        children:[
+              {
+               path:'products-switch/:r',
+               name:'products-switch',
+               component:() => import(/*webpackChunkName:"products-switch"*/'@v/home/preferential/moreProducts/MoreProductsList.vue')
+           },
+        ]
+      }, 
 
     /* discover-start */
     {

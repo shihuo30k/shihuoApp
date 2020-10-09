@@ -32,14 +32,14 @@
                    <span>热门搜索</span>
                 </div>
                 <div class="popularSearch-cate">
-                 <router-link tag="div" to="/hot-search/AJ">AJ</router-link>
-                 <router-link tag="div" to="/hot-search/Nike">Nike</router-link>
-                 <router-link tag="div" to="/hot-search/亚瑟士">亚瑟士</router-link>
-                 <router-link tag="div" to="/hot-search/洗面奶">洗面奶</router-link>
-                 <router-link tag="div" to="/hot-search/Dickies">Dickies</router-link>
-                 <router-link tag="div" to="/hot-search/李维斯">李维斯</router-link>
-                 <router-link tag="div" to="/hot-search/新百伦">新百伦</router-link>
-                 <router-link tag="div" to="/hot-search/PUMA">PUMA</router-link>
+                 <router-link tag="div" to="/search_result?keywords=aj">AJ</router-link>
+                 <router-link tag="div" to="/search_result?keywords=Nike">Nike</router-link>
+                 <router-link tag="div" to="/search_result?keywords=亚瑟士">亚瑟士</router-link>
+                 <router-link tag="div" to="//search_result?keywords=洗面奶">洗面奶</router-link>
+                 <router-link tag="div" to="/search_result?keywords=Dickies">Dickies</router-link>
+                 <router-link tag="div" to="/search_result?keywords=李维斯">李维斯</router-link>
+                 <router-link tag="div" to="/search_result?keywords=新百伦">新百伦</router-link>
+                 <router-link tag="div" to="/search_result?keywords=PUMA">PUMA</router-link>
                 </div>
                </div>
               </div>
@@ -145,8 +145,7 @@ export default {
       width 100%
       height 100%
       opacity 0
-
-      
+    
      .wrapper {
     display: flex;
     align-items: center;
@@ -154,8 +153,6 @@ export default {
     height: 25%;
   }
      
-         
-
   .block {
     position:absolute
     width: 100%;
@@ -173,7 +170,6 @@ export default {
     bottom: 15px;
     left: 0;
     z-index: 1;
-    
     background-color: #fff;
     border-radius: 3px;
 }
@@ -234,11 +230,7 @@ export default {
   justify-content center
   align-items center
   color: #444;
+  font-size:.14rem
 }
 
-
-
-
-    
-     
 </style>

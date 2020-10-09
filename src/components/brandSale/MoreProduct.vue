@@ -4,7 +4,9 @@
        <span class="title">超值9块9</span>
        <span class="title-v">24小时淘不停</span>
      </div>
-     <span class="superValue-right">更多商品<i class="yo-ico"> &#xe648;</i></span>
+     <router-link tag="span" class="superValue-right" to="/more-products">
+       更多商品<i class="yo-ico"> &#xe648;</i>
+     </router-link>
    </div>
 </template>
 

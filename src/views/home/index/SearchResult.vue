@@ -88,7 +88,7 @@ export default {
     },
     methods:{
         gobackHandler(){
-            this.$router.push('/')
+            this.$router.back()
         }
     }
 };
