@@ -259,6 +259,12 @@
       <div class="recommend">
         最新推荐
       </div>
+      <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onload"
+     >
       <a :href="item.data.href" id="list" :key="item.data.id" v-for="item in hotlist" class="aa">
       <div class="listitem">
         <div class="imglist">
@@ -284,6 +290,7 @@
         </div>
       </div>
       </a>
+      </van-list>
     </div>
   </div>
 </template>
@@ -295,11 +302,26 @@ import goodprice from "@c/goodprice";
 import salehot from "@c/salehot";
 import currentnew from "@c/currentnew";
 import http from "@u/http.js"
+var qs=require("querystringify")
 export default {
   data(){
     return{
-       hotlist:[]
+       hotlist:[],
+       loading: false,
+       finished: false,
+       page:2,
     }
+  },
+  methods:{
+    async onload() {
+      let result = await http.post("/api/zhuangbei/getHomeNews",qs.stringify({'page':this.page}))
+      this.hotlist = this.hotlist.concat(result.data);
+      this.page++;
+      this.loading = false;
+      if (this.hotlist.length > 200) {
+        this.finished = true;
+      }
+    },
   },
   components: {
     searchinput,
@@ -309,7 +331,7 @@ export default {
     currentnew,
   },
   async mounted(){
-    let result=await http.post('/api/zhuangbei/getHomeNews',4)
+    let result=await http.post('/api/zhuangbei/getHomeNews',qs.stringify({'page':1}))
     this.hotlist=result.data;
     console.log(result.data);
   }

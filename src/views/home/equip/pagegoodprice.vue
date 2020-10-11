@@ -17,10 +17,10 @@
     </div>
     <div class="xialacon">
         <van-dropdown-menu>
-         <van-dropdown-item v-model="value1" :options="option1">
+         <van-dropdown-item v-model="value1" :options="option1"  @change="tuangou">
          </van-dropdown-item>
-         <van-dropdown-item v-model="value2" :options="option2"></van-dropdown-item>
-         <van-dropdown-item v-model="value3" :options="option3"></van-dropdown-item>
+         <van-dropdown-item v-model="value2" :options="option2" @change="nice"></van-dropdown-item>
+         <van-dropdown-item v-model="value3" :options="option3"  @change="pricelist"></van-dropdown-item>
         </van-dropdown-menu>
     </div>
     <div class="rowlist1"></div>
@@ -129,31 +129,116 @@ export default {
                 {id:7,sort:['CJ麦科勒姆','韦德','欧文','乔丹','汤普森'],seen:false}
             ],
             value1:0,
-            value2:'a',
-            value3:1,
+            value2:0,
+            value3:0,
             option1:[
                 {text:'特价优惠',value:0},
                 {text:'低价运动装备限时抢购，每日更新',value:1},
                 {text:'选择识货包邮链接商家可获得免费包邮服务',value:2}
             ],
             option2:[
-                {text:'人气最高',value:'a'},
-                {text:'新品上架',value:'b'},
-                {text:'价格从低到高',value:'c'},
-                {text:"价格从高到低",value:'d'}
+                {text:'人气最高',value:0},
+                {text:'新品上架',value:1},
+                {text:'价格从低到高',value:2},
+                {text:"价格从高到低",value:3}
             ],
             option3:[
-               {text:"全部价格",value:1},
-               {text:"0-100",value:2},
-               {text:"100-300",value:3},
-               {text:"300-500",value:4},
-               {text:"500-1000",value:5},
-               {text:"1000-10000",value:6},
-               {text:"10000以上",value:7},
+               {text:"全部价格",value:0},
+               {text:"0-100",value:1},
+               {text:"100-300",value:2},
+               {text:"300-500",value:3},
+               {text:"500-1000",value:4},
+               {text:"1000-10000",value:5},
+               {text:"10000以上",value:6},
             ],
         }
     },
     methods:{
+      async nice(value) {
+      console.log(this.option2[value].text);
+      switch (this.option2[value].text) {
+        case "新品上架":
+          this.goodslist = [];
+          let result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=new"
+          );
+          this.goodslist = result.data.info;
+          break;
+        case "人气最高":
+          this.goodslist = [];
+          result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=hot"
+          );
+          this.goodslist = result.data.info;
+          break;
+        case "价格从低到高":
+          this.goodslist = [];
+          result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=price_a"
+          );
+          this.goodslist = result.data.info;
+          break;
+        case "价格从高到低":
+          this.goodslist = [];
+          result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=price_d"
+          );
+          this.goodslist = result.data.info;
+          break;
+      }
+    },
+    async tuangou(value) {
+      console.log(this.option1[value].text);
+      switch (this.option1[value].text) {
+        case "低价运动装备限时抢购，每日更新":
+          this.goodslist = [];
+          let result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=price_d&tag_type=1"
+          );
+          this.goodslist = result.data.info;
+          break;
+        case "选择识货包邮链接商家可获得免费包邮服务":
+          this.goodslist = [];
+          result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=price_d&tag_type=3"
+          );
+          this.goodslist = result.data.info;
+          break;
+      }
+    },
+    async pricelist(value) {
+      console.log(this.option3[value].text);
+      switch(this.option3[value].text){
+        case '0-100':
+          this.goodslist = [];
+          let result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=hot&tag_type=1&price=0-100"
+          );
+          this.goodslist = result.data.info;
+          break;
+        case '100-300':
+          this.goodslist = [];
+          result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=hot&tag_type=1&price=100-300"
+          );
+          this.goodslist = result.data.info;
+          break;
+        case '300-500':
+          this.goodslist = [];
+          result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=hot&tag_type=1&price=300-500"
+          );
+          this.goodslist = result.data.info;
+          break;
+        case '全部价格':
+          this.goodslist = [];
+          result = await http.get(
+            "/api//sports/search?page=1&page_size=20&range=篮球鞋,紧身衣,球衣,T恤,运动内衣,运动短裤,运动短裙,运动长裤,紧身裤,袜子,运动护具,篮球,背包,跑鞋,训练鞋,紧身衣,运动内衣,T恤,紧身裤,运动长裤,运动短裤,运动短裙,手环,运动耳机,腰包,手套,运动饮料,能量胶,能量棒,蛋白粉,泡腾片,胶囊,片剂,休闲鞋,靴子,皮鞋,拖鞋,篮球鞋,运动内衣,紧身衣,T恤,连帽衫/套头衫,夹克,马甲,羽绒服,球衣,手表,首饰,钱包,双肩包,男包,女包,旅行箱&sort=hot&tag_type=1"
+          );
+          this.goodslist = result.data.info;
+          break;
+      }
+    },
        change(){
          this.listshow=!this.listshow
        },
